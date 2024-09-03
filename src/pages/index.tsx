@@ -14,7 +14,6 @@ const Home: NextPage = () => {
 
   useEffect(() => {
     console.log("マウント");
-
     setChangeBgc((prev) => !prev);
   }, [showCounter]);
 
