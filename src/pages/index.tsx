@@ -1,39 +1,22 @@
-import { NextPage } from "next";
-import styles from "./index.module.scss";
-import { TopTitle } from "@/components/atoms/TopTitle";
 import { Button } from "@/components/atoms/Button";
-import { Counter } from "@/components/molecules/Counter";
-import { useEffect, useState } from "react";
-import cn from "classnames";
-import { useShowCounter } from "@/hooks/useShowCounter";
+import { TopTitle } from "@/components/atoms/TopTitle";
+import { NextPage } from "next";
+
 
 const Home: NextPage = () => {
-  const [changeBgc, setChangeBgc] = useState(false);
-
-  const [showCounter, handleButtonClick] = useShowCounter();
-
-  useEffect(() => {
-    console.log("マウント");
-    setChangeBgc((prev) => !prev);
-  }, [showCounter]);
-
   return (
     <>
       <TopTitle />
-      <Button
-        buttonText="カウントコンポーネントの呼び出し"
-        onClick={handleButtonClick}
-      />
-      <div
-        className={cn({
-          [styles.test]: changeBgc,
-        })}
-      >
-        test
+      <Button />
+
+      <div>
+        <h1>useEffect テスト用</h1>
       </div>
-      {showCounter && <Counter />}
     </>
   );
 };
 
 export default Home;
+
+// cn()が関数
+// {[styles.xxx]: function}がclassnamesオブジェクト構文、　キーにクラス名、値がクラスを適用するかどうかの条件
